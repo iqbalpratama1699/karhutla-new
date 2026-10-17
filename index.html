@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KARHUTLA NEWS – Pantau Karhutla, Jaga Masa Depan</title>
+<meta name="description" content="Portal informasi kebakaran hutan dan lahan di Indonesia: edukasi, panduan membaca hotspot, kualitas udara, dan tautan ke sumber data resmi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#fff;--card:#fff;--ink:#1b1a14;--mute:#5c5a4c;--line:#e6e1c8;--forest:#f7c600;--forest2:#fff;--fire:#8a5a00;--fire-bg:#fff6cf;--on-forest:#1b1a14;--btn:#1b1a14;--btnt:#f7c600;
+--serif:'Newsreader',Georgia,'Times New Roman',serif;--sans:'Public Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14130d;--card:#1d1b12;--ink:#f3efdc;--mute:#b5b098;--line:#3a3722;--forest:#f7c600;--forest2:#fff;--fire:#f7c600;--fire-bg:#2a2410;--on-forest:#1b1a14;--btn:#f7c600;--btnt:#1b1a14}}
+:root[data-theme="dark"]{--bg:#14130d;--card:#1d1b12;--ink:#f3efdc;--mute:#b5b098;--line:#3a3722;--forest:#f7c600;--forest2:#fff;--fire:#f7c600;--fire-bg:#2a2410;--on-forest:#1b1a14;--btn:#f7c600;--btnt:#1b1a14}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid #1b1a14;outline-offset:2px;box-shadow:0 0 0 2px #fff}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{background:var(--forest);color:var(--on-forest)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+.logo{font:700 26px/1 var(--serif);text-decoration:none;letter-spacing:.01em}
+.logo span{background:var(--on-forest);color:var(--forest);padding:2px 8px;margin-left:4px;border-radius:3px}
+.tag{font-size:13px;opacity:.8;margin:4px 0 0}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{padding:8px 12px;text-decoration:none;font-size:15px;border-bottom:3px solid transparent}
+nav a:hover{border-color:var(--on-forest)}
+nav a[aria-current="page"]{border-color:var(--on-forest);font-weight:600}
+.srch{display:flex;gap:6px}
+.srch input{padding:8px 10px;border:1px solid var(--on-forest);background:var(--forest2);color:#1b1a14;border-radius:4px;width:150px;font:inherit;font-size:14px}
+.srch input::placeholder{color:#6b6a5c}
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:4px;padding:8px 14px;background:var(--btn);color:var(--btnt);font-weight:600;text-decoration:none;display:inline-block}
+button.ghost{background:transparent;color:inherit;border:1px solid var(--line)}
+.notice{background:var(--fire-bg);border-left:5px solid var(--forest);padding:14px 18px;margin:24px 0;font-size:15px}
+.hero{background:var(--forest);color:var(--on-forest);padding:56px 0 64px;border-bottom:6px solid var(--on-forest)}
+.hero h1{font:700 clamp(34px,6vw,60px)/1.08 var(--serif);margin:0 0 16px;max-width:15em}
+.hero p{max-width:40em;font-size:18px;opacity:.9;margin:0 0 24px}
+main{padding:36px 0 60px;min-height:55vh}
+h2{font:700 28px/1.2 var(--serif);margin:36px 0 14px}
+h3{font:700 20px/1.3 var(--serif);margin:0 0 6px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px}
+.card p{margin:6px 0 0;color:var(--mute);font-size:15px}.card.news{border-top:4px solid var(--forest)}.lead{border:1px solid var(--line);border-top:6px solid var(--forest);border-radius:6px;padding:28px;background:var(--card)}.lead h3{font-size:clamp(24px,4vw,36px);line-height:1.15}.lead p{font-size:17px;color:var(--mute)}.lead .meta{font-size:14px}
+.card a.more{display:inline-block;margin-top:10px;color:var(--fire);font-weight:600}
+.cat{font-size:13px;color:var(--fire);font-weight:600;margin:0 0 4px}
+.empty{border:2px dashed var(--line);border-radius:6px;padding:32px 24px;text-align:center;color:var(--mute)}
+.empty strong{display:block;color:var(--ink);font:700 20px var(--serif);margin-bottom:6px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.filters label{font-size:14px;display:flex;flex-direction:column;gap:2px}
+.filters input,.filters select{padding:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:4px;font:inherit;min-width:150px}
+article.read{max-width:680px}
+article.read p,article.read li{font-family:var(--serif);font-size:19px;line-height:1.75}
+article.read h1{font:700 clamp(30px,5vw,44px)/1.12 var(--serif);margin:6px 0 10px}
+.meta{color:var(--mute);font-size:14px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tablewrap{overflow-x:auto}
+footer{background:var(--forest);color:var(--on-forest);padding:36px 0 28px;font-size:14px}
+footer .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+footer h4{margin:0 0 8px;font:700 17px var(--serif)}
+footer a{color:var(--on-forest)}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:#000;padding:8px;z-index:9}
+@media (prefers-reduced-motion:no-preference){main>section{animation:in .25s ease-out}@keyframes in{from{opacity:.4}to{opacity:1}}}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Lewati ke konten</a>
+<header class="top">
+ <div class="wrap">
+  <div class="bar">
+   <div><a class="logo" href="#/">KARHUTLA <span>NEWS</span></a><p class="tag">Pantau Karhutla, Jaga Masa Depan.</p></div>
+   <form class="srch" role="search" id="sf"><label class="skip" for="q">Cari artikel</label><input id="q" type="search" placeholder="Cari artikel…"><button type="submit">Cari</button></form>
+  </div>
+  <nav id="nav" aria-label="Navigasi utama"></nav>
+ </div>
+</header>
+<main class="wrap" id="app" tabindex="-1"></main>
+<footer>
+ <div class="wrap">
+  <div class="grid">
+   <div><h4>Redaksi</h4><p>KARHUTLA NEWS adalah proyek portal informasi karhutla. Isi redaksi, nama penulis, dan kontak resmi diisi oleh pengelola sebelum situs dipublikasikan.</p></div>
+   <div><h4>Sumber data</h4><p><a href="https://www.bmkg.go.id/" rel="noopener">BMKG</a>, <a href="https://www.bnpb.go.id/" rel="noopener">BNPB</a>, <a href="https://firms.modaps.eosdis.nasa.gov/" rel="noopener">NASA FIRMS</a>, <a href="https://www.iqair.com/" rel="noopener">IQAir</a>, <a href="https://www.menlhk.go.id/" rel="noopener">Kementerian LH/Kehutanan</a></p></div>
+   <div><h4>Kebijakan</h4><p>Berita disusun dari rilis resmi dan media dengan tautan sumber. Tidak ada angka contoh. Hotspot bukan bukti kebakaran terkonfirmasi.</p></div>
+  </div>
+ </div>
+</footer>
+
+<script>
+/* ===== Data artikel =====
+Satu-satunya tempat berita masuk. Kosong = tidak ada berita palsu.
+Skema tiap artikel (status harus "terbit" agar tampil):
+{ id, slug, judul, ringkasan, isi:[paragraf], kategori, provinsi, penulis, editor,
+  tglKejadian:"YYYY-MM-DD", tglTerbit:"YYYY-MM-DD", tglPembaruan, gambar:{url,keterangan,atribusi},
+  sumber:[{nama,url}], status:"draft"|"menunggu verifikasi"|"terbit" } */
+const RED='Redaksi KARHUTLA NEWS';
+const ARTICLES = [
+{id:1,slug:'hotspot-1085-per-12-oktober',judul:'Hotspot nasional capai 1.085 titik per 12 Oktober, Kalimantan Tengah dan Selatan melonjak',ringkasan:'Sistem SiPongi mendeteksi 1.085 hotspot berkepercayaan tinggi di seluruh Indonesia, dengan kenaikan menonjol di Kalimantan.',kategori:'Hotspot',provinsi:'Nasional',penulis:RED,tglKejadian:'2026-10-12',tglTerbit:'2026-10-17',status:'terbit',isi:['Kementerian Kehutanan melaporkan bahwa SiPongi mendeteksi 1.085 hotspot berkepercayaan tinggi di seluruh Indonesia hingga Senin, 12 Oktober 2026 pukul 21.00 WIB. Data berasal dari tiga satelit NASA: Terra/Aqua, SNPP, dan NOAA-20.','Di enam provinsi prioritas, Kalimantan Tengah mencatat 227 titik (sebelumnya 74), Sumatera Selatan 147 (sebelumnya 121), Kalimantan Selatan 113 (sebelumnya 15), Kalimantan Barat 31 (sebelumnya 24), dan Jambi 24 (sebelumnya 4). Riau tetap nihil.','Pada hari yang sama, Menteri Kehutanan Raja Juli Antoni meninjau penanganan di Hutan Lindung Liang Anggang, Banjarbaru, Kalimantan Selatan, bersama gubernur setempat. Penanganan di lokasi memadukan operasi darat dan udara, dan lahan gambut mendapat perhatian khusus.'],catatan:'Hotspot adalah indikasi anomali suhu, bukan jumlah kejadian atau luas kebakaran. Angka dikutip dari rilis Kemenhut dan belum kami cocokkan langsung dengan SiPongi.',sumber:[{nama:'Kementerian Kehutanan',url:'https://www.kehutanan.go.id/pers/menhut-kawal-langsung-operasi-penanganan-karhutla-di-kalimantan-1'}]},
+{id:2,slug:'hotspot-799-per-15-oktober',judul:'Hotspot nasional 799 titik per 15 Oktober, Kalimantan Tengah tertinggi',ringkasan:'Kemenhut mencatat 799 hotspot berkepercayaan tinggi, 615 di antaranya di enam provinsi prioritas.',kategori:'Hotspot',provinsi:'Kalimantan Tengah',penulis:RED,tglKejadian:'2026-10-15',tglTerbit:'2026-10-17',status:'terbit',isi:['Hingga Kamis, 15 Oktober 2026 pukul 21.00 WIB, Kementerian Kehutanan mencatat 799 hotspot berkepercayaan tinggi secara nasional. Sebanyak 615 titik berada di enam provinsi prioritas.','Kalimantan Tengah tertinggi dengan 389 titik, naik dari 130 pada hari sebelumnya. Sumatera Selatan 122 titik (dari 91), Kalimantan Barat 42 (dari 59), Jambi 31 (dari 9), dan Kalimantan Selatan 31 (dari 5). Riau nihil hotspot berkepercayaan tinggi.','Kementerian menegaskan bahwa satu kejadian kebakaran dapat terdeteksi sebagai beberapa hotspot, sehingga jumlahnya tidak sama dengan jumlah kebakaran maupun luas lahan terbakar. Penguatan operasi disesuaikan dengan hasil pengecekan lapangan, kondisi api, karakter lahan, sumber air, akses, dan keselamatan personel.'],catatan:'Angka ini dilaporkan pada tanggal berbeda dari rilis 12 Oktober, jadi bandingkan dengan hati-hati.',sumber:[{nama:'Media Indonesia',url:'https://mediaindonesia.com/nusantara/945134/hotspot-karhutla-naik-kemenhut-perkuat-operasi-di-kalimantan-tengah'},{nama:'VIVA',url:'https://www.viva.co.id/berita/nasional/1936269-terdeteksi-799-hotspot-karhutla-kemenhut-kalimantan-tengah-terbanyak-dan-4-pemadam-meninggal'},{nama:'Warta Terkini',url:'https://wartaterkini.news/karhutla-meningkat-kemenhut-perkuat-operasi-darat-dan-udara-di-sejumlah-wilayah/'}]},
+{id:3,slug:'empat-pemadam-tnbts-meninggal',judul:'Empat orang yang terlibat pemadaman di TNBTS meninggal dunia',ringkasan:'Kemenhut menyampaikan duka cita atas meninggalnya empat orang dalam upaya pemadaman di Taman Nasional Bromo Tengger Semeru.',kategori:'Penanganan',provinsi:'Jawa Timur',penulis:RED,tglKejadian:'2026-10-15',tglTerbit:'2026-10-17',status:'terbit',isi:['Kementerian Kehutanan menyampaikan duka cita mendalam atas meninggalnya empat orang yang terlibat dalam upaya pemadaman kebakaran hutan dan lahan di kawasan Taman Nasional Bromo Tengger Semeru (TNBTS), Jawa Timur, pada Kamis, 15 Oktober 2026.','Kronologi dan identitas korban tidak kami muat karena belum tersedia dari sumber yang kami rujuk. Artikel ini akan diperbarui setelah ada keterangan resmi.'],catatan:'Informasi terbatas pada yang dilaporkan sumber.',sumber:[{nama:'VIVA',url:'https://www.viva.co.id/berita/nasional/1936269-terdeteksi-799-hotspot-karhutla-kemenhut-kalimantan-tengah-terbanyak-dan-4-pemadam-meninggal'}]},
+{id:4,slug:'kualitas-udara-16-oktober',judul:'Kualitas udara: sebagian wilayah baik, sejumlah lokasi tidak sehat hingga berbahaya',ringkasan:'Pemantauan PM2,5 menunjukkan kondisi udara sangat beragam antarwilayah.',kategori:'Kualitas Udara',provinsi:'Nasional',penulis:RED,tglKejadian:'2026-10-16',tglTerbit:'2026-10-17',status:'terbit',isi:['Menurut laporan yang dimuat pada 16 Oktober 2026, pemantauan kualitas udara berbasis PM2,5 menunjukkan sebagian wilayah Indonesia berada pada kategori baik hingga sedang.','Namun sejumlah lokasi di Sumatra, Kalimantan, dan wilayah lain masih mengalami kondisi tidak sehat hingga sangat tidak sehat, bahkan berbahaya secara lokal.','Warga di wilayah berasap disarankan mengurangi aktivitas luar ruangan dan mengikuti panduan dinas kesehatan setempat. Kelompok rentan seperti anak, lansia, dan penderita penyakit paru atau jantung perlu ekstra hati-hati.'],catatan:'Sumber tidak merinci lokasi dan nilai per stasiun, sehingga kami tidak menambahkan angka.',sumber:[{nama:'Warta Terkini',url:'https://wartaterkini.news/karhutla-meningkat-kemenhut-perkuat-operasi-darat-dan-udara-di-sejumlah-wilayah/'}]},
+{id:5,slug:'riau-nihil-hotspot',judul:'Riau tercatat nihil hotspot berkepercayaan tinggi di rilis-rilis resmi sejak September',ringkasan:'Riau dan beberapa kali Jambi nihil hotspot, sementara fokus pengendalian bergeser ke Kalimantan.',kategori:'Hotspot',provinsi:'Riau',penulis:RED,tglKejadian:'2026-10-13',tglTerbit:'2026-10-17',status:'terbit',isi:['Dalam rilis Kementerian Kehutanan tanggal 4, 12, 14, dan 25 September serta 13 Oktober 2026, Riau tercatat nihil hotspot berkepercayaan tinggi. Rilis 15 dan 16 Oktober menunjukkan hal yang sama.','Jambi juga sempat nihil pada rilis 12 dan 25 September, tetapi kembali mencatat titik pada pemantauan Oktober (31 titik hingga 15 Oktober).','Kemenhut mengimbau masyarakat dan pelaku usaha tidak membuka atau membersihkan lahan dengan membakar, serta memastikan tidak ada aktivitas yang bisa menyulut kebakaran baru.'],catatan:'Pernyataan mencakup rilis yang kami periksa, bukan seluruh hari.',sumber:[{nama:'InfoPublik',url:'https://infopublik.id/kategori/bencana/987351/index.html'},{nama:'Kementerian Kehutanan (25 Sep)',url:'https://www.kehutanan.go.id/news/riau-jambi-nihil-hotspot-karhutla-pengelolaan-gambut-diperkuat-1'},{nama:'Kementerian Kehutanan (13 Okt)',url:'https://www.kehutanan.go.id/pers/menhut-kawal-langsung-operasi-penanganan-karhutla-di-kalimantan-1'}]},
+{id:6,slug:'presiden-minta-laporan-berkala',judul:'Presiden minta laporan berkala titik api Sumatra dan Kalimantan',ringkasan:'Rapat terbatas hybrid 23 September membahas eskalasi karhutla di Kalimantan.',kategori:'Kebijakan',provinsi:'Nasional',penulis:RED,tglKejadian:'2026-09-23',tglTerbit:'2026-10-17',status:'terbit',isi:['Presiden Prabowo Subianto memimpin rapat terbatas hybrid dari Istana Merdeka, Jakarta, pada Rabu, 23 September 2026, untuk membahas eskalasi karhutla di Kalimantan.','Sekretaris Kabinet Teddy Indra Wijaya menyatakan Presiden meminta laporan berkala mengenai titik api di Sumatra dan Kalimantan secara menyeluruh.','Menteri Kehutanan Raja Juli Antoni melaporkan tren di Sumatra membaik, antara lain Riau nol hotspot tiga hari berturut-turut, sementara hotspot di Kalimantan Tengah dan Kalimantan Barat meningkat tajam.'],catatan:'',sumber:[{nama:'Liputan6',url:'https://www.liputan6.com/news/read/8298954/hotspot-di-riau-nol-menhut-waspadai-lonjakan-kebakaran-hutan-di-kalimantan'}]},
+{id:7,slug:'operasi-darat-udara-omc',judul:'Operasi darat, udara, dan modifikasi cuaca jadi andalan pengendalian karhutla',ringkasan:'Kemenhut memadukan pemadaman, water bombing, patroli udara, dan Operasi Modifikasi Cuaca untuk membasahi gambut.',kategori:'Penanganan',provinsi:'Kalimantan Barat',penulis:RED,tglKejadian:'2026-09-14',tglTerbit:'2026-10-17',status:'terbit',isi:['Rilis Kementerian Kehutanan 14 September 2026 menyebut pengendalian karhutla dijalankan lewat operasi darat, water bombing, patroli udara, dan Operasi Modifikasi Cuaca (OMC). OMC di Kalimantan Barat dan Kalimantan Tengah menjadi bagian dari strategi pembasahan gambut.','Rilis 25 September mengingatkan bahwa kebakaran merusak habitat, mengurangi sumber pakan, dan dapat mendorong satwa keluar menuju kebun atau permukiman. Warga yang menemukan satwa liar terdampak diminta tidak menanganinya sendiri.'],catatan:'',sumber:[{nama:'Kementerian Kehutanan (14 Sep)',url:'https://www.kehutanan.go.id/pers/data-terbaru-kemenhut-hotspot-karhutla-di-kalteng-kalbar-turun-tajam'},{nama:'Kementerian Kehutanan (25 Sep)',url:'https://www.kehutanan.go.id/news/riau-jambi-nihil-hotspot-karhutla-pengelolaan-gambut-diperkuat-1'}]}
+];
+
+const EDU = [
+ {s:'apa-itu-karhutla',t:'Apa itu karhutla?',r:'Karhutla adalah singkatan dari kebakaran hutan dan lahan, mencakup kebakaran di kawasan hutan, perkebunan, dan lahan gambut maupun mineral.',b:[
+  'Kebakaran hutan dan lahan terjadi ketika vegetasi atau bahan organik di lahan terbakar dan menyebar tidak terkendali. Di Indonesia, kasus terbesar sering terjadi di lahan gambut, karena gambut yang kering dapat terbakar di bawah permukaan dan sulit dipadamkan.',
+  'Musim kemarau panjang, terutama saat fenomena El Niño, meningkatkan risiko karena lahan dan vegetasi menjadi sangat kering.']},
+ {s:'penyebab',t:'Penyebab karhutla',r:'Faktor alam menyiapkan kondisi mudah terbakar, tetapi penyulut api umumnya berasal dari aktivitas manusia.',b:[
+  'Faktor alam meliputi kemarau panjang, suhu tinggi, dan angin kencang. Faktor ini membuat lahan mudah terbakar, tetapi jarang menjadi sumber api.',
+  'Sumber api umumnya berkaitan dengan aktivitas manusia, misalnya pembukaan lahan dengan cara membakar, puntung rokok, dan api unggun yang tidak dipadamkan. Pengeringan lahan gambut melalui kanal juga membuat gambut lebih mudah terbakar.',
+  'Penetapan penyebab dan pihak yang bertanggung jawab pada kasus tertentu merupakan wewenang aparat penegak hukum, bukan media.']},
+ {s:'dampak',t:'Dampak karhutla',r:'Asap memengaruhi kesehatan, ekosistem, transportasi, dan ekonomi.',b:[
+  'Asap mengandung partikel halus (PM2.5) yang dapat masuk jauh ke saluran pernapasan. Paparan dapat memicu iritasi mata dan tenggorokan, batuk, serta memperburuk asma dan penyakit jantung atau paru. Kelompok rentan: anak-anak, lansia, ibu hamil, dan penderita penyakit kronis.',
+  'Kebakaran merusak habitat satwa, menurunkan keanekaragaman hayati, dan melepaskan karbon dalam jumlah besar, terutama dari gambut. Kabut asap juga dapat mengganggu penerbangan, sekolah, dan aktivitas ekonomi.']},
+ {s:'pencegahan',t:'Cara mencegah karhutla',r:'Pencegahan lebih murah dan lebih aman daripada pemadaman.',b:[
+  'Jangan membuka lahan dengan membakar. Padamkan api unggun sampai benar-benar mati, dan jangan membuang puntung rokok sembarangan di area kering.',
+  'Menjaga kelembapan gambut, misalnya dengan membasahi kembali lahan gambut, membantu mengurangi risiko. Pantau peringatan cuaca dan kekeringan dari BMKG, dan ikuti imbauan pemerintah daerah.']},
+ {s:'melapor',t:'Cara melapor jika melihat api',r:'Segera hubungi pihak berwenang dan jangan mencoba memadamkan api besar sendirian.',b:[
+  'Jauhkan diri dari api dan asap, lalu hubungi BPBD setempat, aparat desa, atau nomor darurat 112 (periksa ketersediaannya di daerah Anda). Sampaikan lokasi sedekat mungkin, luas perkiraan, dan arah angin.',
+  'Jika Anda mengambil foto atau video, catat waktu dan lokasinya, tetapi jangan membahayakan diri.']},
+ {s:'hotspot',t:'Hotspot, titik api, dan area terbakar: apa bedanya?',r:'Tiga istilah ini sering tertukar, padahal artinya berbeda.',b:[
+  'Hotspot adalah titik yang terdeteksi satelit memiliki anomali panas (suhu lebih tinggi dari sekitarnya). Hotspot adalah indikasi, bukan bukti kebakaran. Sumber panas lain, misalnya aktivitas industri atau permukaan yang sangat panas, juga dapat terdeteksi, dan awan atau asap tebal dapat menghalangi deteksi.',
+  'Titik api (api terverifikasi) adalah api yang sudah dicek di lapangan oleh petugas. Area terbakar adalah luas lahan yang terbukti terbakar, biasanya dihitung dari citra satelit setelah kejadian atau dari survei lapangan.',
+  'Karena itu jumlah hotspot tidak sama dengan jumlah kebakaran maupun luas lahan yang terbakar.']}
+];
+
+const SRC = [
+ ['BMKG','Cuaca, iklim, potensi kekeringan, informasi kabut asap','https://www.bmkg.go.id/'],
+ ['Kementerian Lingkungan Hidup','Portal resmi lingkungan hidup (cek instansi yang kini berwenang atas data karhutla)','https://www.menlh.go.id/'],
+ ['Kementerian Kehutanan / KLHK','Portal resmi kehutanan dan pengendalian karhutla','https://www.menlhk.go.id/'],
+ ['BNPB','Informasi bencana dan penanganan','https://www.bnpb.go.id/'],
+ ['NASA FIRMS','Deteksi anomali panas dari satelit (hotspot) dan peta aktif','https://firms.modaps.eosdis.nasa.gov/'],
+ ['IQAir','Kualitas udara, referensi tambahan','https://www.iqair.com/']
+];
+
+const PAGES=[['/','Beranda'],['/berita','Berita'],['/hotspot','Hotspot'],['/udara','Kualitas Udara'],['/edukasi','Edukasi'],['/data','Data'],['/tentang','Tentang Kami']];
+const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const published=()=>ARTICLES.filter(a=>a.status==='terbit');
+const fmt=d=>d?new Date(d).toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}):'';
+const linkSrc=u=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))}</a>`;
+const emptyBox=(t,m)=>`<div class="empty"><strong>${t}</strong>${m}</div>`;
+
+function lead(a){return `<div class="lead"><p class="cat">${esc(a.kategori)} · ${esc(a.provinsi||'Nasional')}</p><h3>${esc(a.judul)}</h3><p>${esc(a.ringkasan)}</p><p class="meta">${esc(a.penulis)}. Kejadian ${fmt(a.tglKejadian||a.tglTerbit)}</p><a class="btn" href="#/berita/${esc(a.slug)}">Baca selengkapnya</a></div>`}
+function home(){const l=[...published()].sort((a,b)=>(a.tglKejadian||'')<(b.tglKejadian||'')?1:-1);if(!l.length)return emptyBox('Belum ada berita terbit','Artikel baru tampil di sini setelah diverifikasi.');return lead(l[0])+`<div class="grid" style="margin-top:18px">${l.slice(1,4).map(card).join('')}</div><p><a href="#/berita"><strong>Lihat semua berita</strong></a></p>`}
+function card(a){return `<div class="card news"><p class="cat">${esc(a.kategori)} · ${esc(a.provinsi||'Nasional')}</p><h3>${esc(a.judul)}</h3><p>${esc(a.ringkasan)}</p><p class="meta">${esc(a.penulis)}. Kejadian ${fmt(a.tglKejadian||a.tglTerbit)}</p><a class="more" href="#/berita/${esc(a.slug)}">Baca selengkapnya</a></div>`}
+function eduCard(e){return `<div class="card"><p class="cat">Edukasi</p><h3>${esc(e.t)}</h3><p>${esc(e.r)}</p><a class="more" href="#/edukasi/${e.s}">Baca</a></div>`}
+
+const views={
+'/':()=>`<section>
+ <div class="notice"><strong>Catatan transparansi.</strong> Berita disusun ulang oleh redaksi dari rilis resmi dan media, lengkap dengan tautan sumber. Angka dikutip dari rilis tersebut, bukan umpan data langsung.</div>
+ <h2>Berita terkini</h2>
+ ${home()}
+ <h2>Pantauan singkat</h2>
+ <div class="grid">
+  <div class="card"><h3>Hotspot</h3><p>Hotspot nasional berkepercayaan tinggi: 799 titik hingga 15 Oktober 2026 pukul 21.00 WIB (SiPongi, dikutip dari rilis Kemenhut).</p><a class="more" href="#/hotspot">Lihat halaman hotspot</a></div>
+  <div class="card"><h3>Kualitas udara</h3><p>Nilai PM2.5 hanya ditampilkan jika stasiun, waktu, dan metodenya jelas.</p><a class="more" href="#/udara">Lihat halaman kualitas udara</a></div>
+ </div>
+ <h2>Edukasi</h2>
+ <div class="grid">${EDU.slice(0,3).map(eduCard).join('')}</div>
+ <h2>Sumber informasi resmi</h2>
+ <div class="tablewrap">${srcTable()}</div>
+</section>`,
+
+'/berita':(p)=>{const q=(p.q||'').toLowerCase();let list=published();
+ if(q)list=list.filter(a=>(a.judul+' '+a.isi.join(' ')).toLowerCase().includes(q));if(p.kat)list=list.filter(a=>a.kategori===p.kat);if(p.prov)list=list.filter(a=>a.provinsi===p.prov);list=[...list].sort((a,b)=>(a.tglKejadian||'')<(b.tglKejadian||'')?1:-1);if(p.urut==='lama')list.reverse();
+ const prov=[...new Set(published().map(a=>a.provinsi).filter(Boolean))],cat=[...new Set(published().map(a=>a.kategori))];
+ return `<section><h1 style="font:700 36px var(--serif);margin:0">Berita</h1>
+ <form class="filters" id="ff" role="search">
+  <label>Kata kunci<input name="q" value="${esc(p.q||'')}"></label>
+  <label>Kategori<select name="kat"><option value="">Semua</option>${cat.map(c=>`<option>${esc(c)}</option>`).join('')}</select></label>
+  <label>Provinsi<select name="prov"><option value="">Semua</option>${prov.map(c=>`<option>${esc(c)}</option>`).join('')}</select></label>
+  <label>Urutan<select name="urut"><option value="baru">Terbaru</option><option value="lama">Terlama</option></select></label>
+  <button style="align-self:end" type="submit">Terapkan</button></form>
+ ${list.length?`<div class="grid">${list.map(card).join('')}</div>`:emptyBox(q?`Tidak ada hasil untuk “${esc(p.q)}”`:'Belum ada berita terbit','Artikel hanya tampil setelah diverifikasi dan berstatus “terbit”. Berita tidak dibuat atau dikarang untuk mengisi halaman ini.')}
+ </section>`},
+
+'/hotspot':()=>`<section><h1 style="font:700 36px var(--serif);margin:0 0 12px">Pantauan Hotspot</h1>
+ <div class="notice"><strong>Hotspot bukan kebakaran terkonfirmasi.</strong> Hotspot adalah indikasi anomali panas dari satelit yang perlu diverifikasi di lapangan.</div>
+ ${emptyBox('Data hotspot belum terhubung','Peta interaktif dan filter provinsi memerlukan umpan data resmi (misalnya NASA FIRMS dengan MAP_KEY) yang diambil melalui server. Halaman ini tidak menampilkan titik contoh agar tidak disangka data nyata.<br><br><a class="btn" href="https://firms.modaps.eosdis.nasa.gov/map/" target="_blank" rel="noopener noreferrer">Buka peta aktif NASA FIRMS</a>')}
+ <h2>Ringkasan dari rilis resmi</h2><p class="meta">Hotspot berkepercayaan tinggi menurut SiPongi hingga 15 Oktober 2026 pukul 21.00 WIB, dikutip dari rilis Kemenhut yang dimuat media (<a href="#/berita/hotspot-799-per-15-oktober">lihat berita</a>). Ini bukan umpan data langsung.</p><div class="tablewrap"><table><thead><tr><th>Provinsi</th><th>Hotspot</th><th>Hari sebelumnya</th></tr></thead><tbody><tr><td>Kalimantan Tengah</td><td>389</td><td>130</td></tr><tr><td>Sumatera Selatan</td><td>122</td><td>91</td></tr><tr><td>Kalimantan Barat</td><td>42</td><td>59</td></tr><tr><td>Jambi</td><td>31</td><td>9</td></tr><tr><td>Kalimantan Selatan</td><td>31</td><td>5</td></tr><tr><td>Riau</td><td>nihil</td><td>tidak dilaporkan</td></tr></tbody></table></div><h2>Cara membaca hotspot</h2>
+ <div class="card"><p>Perhatikan waktu pengamatan, satelit atau sensor yang dipakai, dan tingkat kepercayaan deteksi jika disediakan. Bandingkan dengan laporan resmi BPBD dan citra cuaca sebelum menarik kesimpulan. Baca penjelasan lengkap di <a href="#/edukasi/hotspot">Edukasi: hotspot, titik api, dan area terbakar</a>.</p></div></section>`,
+
+'/udara':()=>`<section><h1 style="font:700 36px var(--serif);margin:0 0 12px">Kualitas Udara</h1>
+ ${emptyBox('Data kualitas udara belum terhubung','Nilai indeks dan PM2.5 hanya akan ditampilkan bila stasiun pemantau, waktu pengukuran, dan metodenya jelas. Tidak ada angka contoh di halaman ini.<br><br><a class="btn" href="https://www.iqair.com/indonesia" target="_blank" rel="noopener noreferrer">Cek kualitas udara di IQAir</a>')}
+ <h2>Kondisi terbaru</h2><div class="card"><p>Laporan 16 Oktober 2026: sebagian wilayah berada pada kategori baik hingga sedang, tetapi sejumlah lokasi di Sumatra dan Kalimantan tidak sehat hingga berbahaya secara lokal. <a href="#/berita/kualitas-udara-16-oktober">Baca beritanya</a>.</p></div><h2>Asap dan kesehatan</h2>
+ <div class="card"><p>Partikel halus dalam asap dapat mengiritasi mata, hidung, dan paru-paru, dan paling berisiko bagi anak-anak, lansia, ibu hamil, serta penderita penyakit paru atau jantung. Saat udara berasap, kurangi aktivitas luar ruangan, gunakan masker yang sesuai, dan ikuti panduan Kementerian Kesehatan serta dinas kesehatan setempat. Segera cari bantuan medis bila sesak napas atau gejala memburuk.</p></div></section>`,
+
+'/edukasi':()=>`<section><h1 style="font:700 36px var(--serif);margin:0 0 16px">Edukasi</h1><div class="grid">${EDU.map(eduCard).join('')}</div></section>`,
+
+'/data':()=>`<section><h1 style="font:700 36px var(--serif);margin:0 0 12px">Sumber Data</h1>
+ <p>Alamat situs, ketersediaan layanan, dan akses API perlu diverifikasi sebelum integrasi. Tidak semua situs menyediakan API publik.</p>
+ <div class="tablewrap">${srcTable()}</div></section>`,
+
+'/tentang':()=>`<section class="read"><article class="read"><h1>Tentang Kami</h1>
+ <p>KARHUTLA NEWS adalah portal informasi kebakaran hutan dan lahan di Indonesia untuk masyarakat umum, pelajar, mahasiswa, jurnalis, dan peneliti.</p>
+ <h2>Prinsip jurnalistik</h2>
+ <ul><li>Tidak membuat berita, narasumber, angka, atau kutipan fiktif.</li><li>Setiap berita faktual menyertakan sumber yang dapat dibuka.</li><li>Berita belum terverifikasi berstatus draft atau menunggu verifikasi, bukan terbit.</li><li>Ringkasan ditulis orisinal dan mengarahkan pembaca ke sumber asli.</li></ul>
+ <h2>Koreksi</h2><p>Kesalahan yang ditemukan dikoreksi secara terbuka dengan catatan tanggal pembaruan. Kontak redaksi, visi misi, dan kebijakan privasi perlu diisi oleh pengelola sebelum peluncuran.</p>
+ <h2>Gambar</h2><p>Foto hanya dipakai bila lisensi dan atribusinya jelas.</p></article></section>`
+};
+
+function srcTable(){return `<table><thead><tr><th>Sumber</th><th>Kegunaan</th><th>Tautan</th></tr></thead><tbody>${SRC.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${linkSrc(r[2])}</td></tr>`).join('')}</tbody></table>`}
+
+function detailBerita(slug){const a=published().find(x=>x.slug===slug);
+ if(!a)return `<section>${emptyBox('Artikel tidak ditemukan','Artikel mungkin belum terbit atau sudah dipindahkan. <a href="#/berita">Kembali ke daftar berita</a>.')}</section>`;
+ const rel=published().filter(x=>x.slug!==slug&&x.kategori===a.kategori).slice(0,2);
+ return `<section><article class="read"><p class="cat">${esc(a.kategori)}</p><h1>${esc(a.judul)}</h1><p><em>${esc(a.ringkasan)}</em></p>
+ <p class="meta">${esc(a.penulis)}${a.editor?', editor: '+esc(a.editor):''}. Terbit ${fmt(a.tglTerbit)}${a.tglKejadian?'. Kejadian '+fmt(a.tglKejadian):''}${a.tglPembaruan?'. Diperbarui '+fmt(a.tglPembaruan):''}</p>
+ ${a.gambar?`<figure><img src="${esc(a.gambar.url)}" alt="${esc(a.gambar.keterangan)}" style="max-width:100%"><figcaption class="meta">${esc(a.gambar.keterangan)} (${esc(a.gambar.atribusi)})</figcaption></figure>`:''}
+ ${a.isi.map(p=>`<p>${esc(p)}</p>`).join('')}
+ ${a.catatan?`<p class="meta"><strong>Catatan redaksi:</strong> ${esc(a.catatan)}</p>`:''}<h2>Sumber</h2><ul>${a.sumber.map(s=>`<li>${esc(s.nama)}: ${linkSrc(s.url)}</li>`).join('')}</ul>
+ <p><button class="ghost" onclick="share('${esc(a.judul).replace(/'/g,'')}')">Bagikan</button></p>
+ ${rel.length?`<h2>Artikel terkait</h2><div class="grid">${rel.map(card).join('')}</div>`:''}</article></section>`}
+
+function detailEdu(slug){const e=EDU.find(x=>x.s===slug);if(!e)return views['/edukasi']();
+ return `<section><article class="read"><p class="cat">Edukasi</p><h1>${esc(e.t)}</h1><p><em>${esc(e.r)}</em></p>${e.b.map(p=>`<p>${esc(p)}</p>`).join('')}
+ <p class="meta">Artikel edukasi umum, bukan berita aktual. Untuk data terbaru rujuk <a href="#/data">sumber resmi</a>.</p><p><a href="#/edukasi">Kembali ke Edukasi</a></p></article></section>`}
+
+async function share(t){const u=location.href;try{if(navigator.share)await navigator.share({title:t,url:u});else{await navigator.clipboard.writeText(u);alert('Tautan disalin.')}}catch(e){alert('Salin tautan dari bilah alamat peramban.')}}
+
+function route(){
+ const [path,qs]=(location.hash.slice(1)||'/').split('?'),p=Object.fromEntries(new URLSearchParams(qs||''));
+ const parts=path.split('/').filter(Boolean);let html,base='/'+(parts[0]||''),title='KARHUTLA NEWS';
+ if(parts[0]==='berita'&&parts[1])html=detailBerita(parts[1]);
+ else if(parts[0]==='edukasi'&&parts[1])html=detailEdu(parts[1]);
+ else html=(views[base]||views['/'])(p);
+ if(path==='/'||!path)html=`<div style="margin:0 -20px 0"><div class="hero"><div class="wrap"><h1>Karhutla di Indonesia, dilaporkan dengan sumber yang bisa dibuka.</h1><p>Berita, panduan membaca hotspot, dan kualitas udara. Tanpa angka karangan.</p><a class="btn" href="#/edukasi">Mulai dari edukasi</a></div></div></div>`+html;
+ $('#app').innerHTML=html;
+ const cur=PAGES.find(x=>x[0]===base)||PAGES[0];document.title=(cur[1]==='Beranda'?'':cur[1]+' – ')+'KARHUTLA NEWS';
+ $('#nav').innerHTML=PAGES.map(x=>`<a href="#${x[0]}"${x[0]===cur[0]?' aria-current="page"':''}>${x[1]}</a>`).join('');
+ const ff=$('#ff');if(ff)ff.onsubmit=e=>{e.preventDefault();const d=new URLSearchParams(new FormData(ff));location.hash='/berita?'+d.toString()};
+ window.scrollTo(0,0);
+}
+$('#sf').onsubmit=e=>{e.preventDefault();location.hash='/berita?q='+encodeURIComponent($('#q').value)};
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
